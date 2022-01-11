@@ -18,7 +18,7 @@ bufferline.setup {
     -- buffer_close_icon = '',
     modified_icon = "●",
     close_icon = "E",
-    -- close_icon = '',
+    -- close_icon = 'C',
     left_trunc_marker = "<",
     right_trunc_marker = ">",
     --- name_formatter can be used to change the buffer's label in the bufferline.

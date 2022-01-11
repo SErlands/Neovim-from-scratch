@@ -1,7 +1,7 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 vim.g.nvim_tree_icons = {
-  default = "d",
+  default = "-",
   symlink = "s",
   git = {
     unstaged = "U",
@@ -13,12 +13,19 @@ vim.g.nvim_tree_icons = {
     ignored = "i",
   },
   folder = {
-    default = "d",
+    default = "+",
     open = "T",
     empty = "e",
     empty_open = "e.",
     symlink = "s",
   },
+}
+vim.g.nvim_tree_show_icons = {
+  git = 1,
+  folders = 0,
+  files = 0,
+  folder_arrows = 1,
+  tree_width = 30,
 }
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
@@ -56,7 +63,7 @@ nvim_tree.setup {
       hint = "h",
       info = "i",
       warning = "W",
-      error = "Er",
+      error = "E",
     },
   },
   update_focused_file = {
@@ -98,15 +105,8 @@ nvim_tree.setup {
     cmd = "trash",
     require_confirm = true,
   },
-  quit_on_open = 0,
+  quit_on_open = 1,
   git_hl = 1,
-  disable_window_picker = 0,
-  root_folder_modifier = ":t",
-  show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-    tree_width = 30,
-  },
+  disable_window_picker = 1,
+  root_folder_modifier = ":t"
 }
