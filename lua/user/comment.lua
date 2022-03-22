@@ -4,6 +4,13 @@ if not status_ok then
 end
 
 comment.setup {
+  padding = true,
+  opleader = {
+    ---Line-comment keymap
+    line = 'gc',
+    ---Block-comment keymap
+    block = 'gb',
+  },
   pre_hook = function(ctx)
     local U = require "Comment.utils"
 

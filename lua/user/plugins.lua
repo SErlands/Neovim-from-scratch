@@ -63,6 +63,7 @@ return packer.startup(function(use)
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
   use "morhetz/gruvbox"
+  use "folke/tokyonight.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp"  -- The completion plugin
@@ -94,6 +95,9 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+
+  -- Clipboard
+  use "svermeulen/vim-cutlass"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

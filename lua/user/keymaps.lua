@@ -60,6 +60,24 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+-- Fast access to a macro
+keymap("n", "Q", "@q", opts);
+
+-- Escape removes search highlights
+keymap("n", "<esc>", ":noh<CR><esc>", opts)
+
+-- Don't copy to clipboard when doing "dd"
+keymap("n", "dd", "V\"_d", opts)
+
+-- Fast access to vsg 
+keymap("n", "<leader>df", "<esc>:w<esc>:!vsg -f % -c ~/vsg_config/vsg_config.json", opts)
+keymap("n", "<leader>dc", "<esc>:w<esc>:!vsg -f % -c ~/vsg_config/vsg_config.json <enter>", opts)
+
+-- Use d to cut text
+keymap("n", "d", "d", opts)
+keymap("x", "d", "d", opts)
+keymap("n", "D", "D", opts)
+
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)

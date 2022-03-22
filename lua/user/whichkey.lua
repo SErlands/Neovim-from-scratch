@@ -85,9 +85,6 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w!<CR>", "Save" },
-  ["q"] = { "<cmd>q!<CR>", "Quit" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -180,6 +177,19 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+  c = {
+    name = "Close",
+    p = { ":BufferLinePickClose<enter>", "Pick close"},
+  },
+  v = {
+    name = "VHDL commands",
+    r = {"^vg_\"aydd :-1read ~/.config/nvim/snippets/vhdl/report.txt<CR> V=^w\"ap/(<CR>\"ap $<esc>", "Report (signal)"}, -- 
+    f = {"<esc>:w<esc>:!vsg -f % -c ~/vsg_config/vsg_config.json --fix <enter> :e % <enter>", "Fix file"},
+    c = {"<esc>:w<esc>:!vsg -f % -c ~/vsg_config/vsg_config.json <enter>", "Check file"},
+    k = {":%s/  report/  -- report/g <enter> :%s/  assert/  -- assert/g <enter> :%s/  severity/  -- severity/g <enter>", "Komment"},
+    u = {":%s/-- report/report/g <enter> :%s/-- assert/assert/g <enter> :%s/-- severity/severity/g <enter>", "Uncomment"}
+
   },
 }
 
