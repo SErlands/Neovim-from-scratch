@@ -4,13 +4,39 @@ if not status_ok then
 end
 
 comment.setup {
-  padding = true,
-  opleader = {
-    ---Line-comment keymap
-    line = 'gc',
-    ---Block-comment keymap
-    block = 'gb',
+
+  mappings = {
+    ---Operator-pending mapping
+    ---Includes `gcc`, `gbc`, `gc[count]{motion}` and `gb[count]{motion}`
+    ---NOTE: These mappings can be changed individually by `opleader` and `toggler` config
+    basic = true,
+    ---Extra mapping
+    ---Includes `gco`, `gcO`, `gcA`
+    extra = true,
+    ---Extended mapping
+    ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
+    extended = true,
   },
+
+  padding = true,
+  sticky = true,
+
+  toggler = {
+    ---Line-comment toggle keymap
+    line = 'gcc',
+    ---Block-comment toggle keymap
+    block = 'gbc',
+
+    opleader = {
+      ---Line-comment keymap
+      line = 'gc',
+      ---Block-comment keymap
+      block = 'gb',
+    },
+  },
+
+
+
   pre_hook = function(ctx)
     local U = require "Comment.utils"
 
@@ -26,4 +52,5 @@ comment.setup {
       location = location,
     }
   end,
+
 }

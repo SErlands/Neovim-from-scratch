@@ -4,9 +4,9 @@ vim.g.nvim_tree_icons = {
   default = "-",
   symlink = "s",
   git = {
-    unstaged = "U",
-    staged = "S",
-    unmerged = "-",
+    unstaged = "✗",
+    staged = "✓",
+    unmerged = "★",
     renamed = "➜",
     deleted = "D",
     untracked = "U",
@@ -49,13 +49,18 @@ nvim_tree.setup {
     "dashboard",
     "alpha",
   },
-  auto_close = true,
+  -- auto_close = true,
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
   update_to_buf_dir = {
     enable = true,
     auto_open = true,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+    },
   },
   diagnostics = {
     enable = true,
@@ -105,7 +110,6 @@ nvim_tree.setup {
     cmd = "trash",
     require_confirm = true,
   },
-  quit_on_open = 1,
   git_hl = 1,
   disable_window_picker = 1,
   root_folder_modifier = ":t"
