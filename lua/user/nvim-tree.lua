@@ -1,32 +1,5 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_icons = {
-  default = "-",
-  symlink = "s",
-  git = {
-    unstaged = "✗",
-    staged = "✓",
-    unmerged = "★",
-    renamed = "➜",
-    deleted = "D",
-    untracked = "U",
-    ignored = "i",
-  },
-  folder = {
-    default = "+",
-    open = "T",
-    empty = "e",
-    empty_open = "e.",
-    symlink = "s",
-  },
-}
-vim.g.nvim_tree_show_icons = {
-  git = 1,
-  folders = 0,
-  files = 0,
-  folder_arrows = 1,
-  tree_width = 30,
-}
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
@@ -62,6 +35,58 @@ nvim_tree.setup {
       quit_on_open = true,
     },
   },
+  renderer = {
+    add_trailing = false,
+    group_empty = false,
+    highlight_git = false,
+    full_name = false,
+    highlight_opened_files = "none",
+    root_folder_modifier = ":~",
+    indent_markers = {
+      enable = false,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        item = "│ ",
+        none = "  ",
+      },
+    },
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = false,
+        folder = false,
+        folder_arrow = true,
+        git = true,
+      },
+      glyphs = {
+        default = "+",
+        symlink = "s",
+        folder = {
+          arrow_closed = ".",
+          arrow_open = "➜",
+          default = "d",
+          open = "T",
+          empty = "e",
+          empty_open = "e",
+          symlink = "s",
+          symlink_open = "e.",
+        },
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "★",
+          renamed = "➜",
+          deleted = "D",
+          untracked = "●",
+          ignored = "◌",
+        },
+      },
+    },
+  },
   diagnostics = {
     enable = true,
     icons = {
@@ -94,7 +119,7 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    auto_resize = true,
+    -- auto_resize = true,
     mappings = {
       custom_only = false,
       list = {
@@ -110,7 +135,4 @@ nvim_tree.setup {
     cmd = "trash",
     require_confirm = true,
   },
-  git_hl = 1,
-  disable_window_picker = 1,
-  root_folder_modifier = ":t"
 }

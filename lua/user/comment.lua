@@ -21,21 +21,19 @@ comment.setup {
   padding = true,
   sticky = true,
 
+  opleader = {
+    ---Line-comment keymap
+    line = 'gc',
+    ---Block-comment keymap
+    block = 'gb',
+  },
+
   toggler = {
     ---Line-comment toggle keymap
     line = 'gcc',
     ---Block-comment toggle keymap
     block = 'gbc',
-
-    opleader = {
-      ---Line-comment keymap
-      line = 'gc',
-      ---Block-comment keymap
-      block = 'gb',
-    },
   },
-
-
 
   pre_hook = function(ctx)
     local U = require "Comment.utils"
